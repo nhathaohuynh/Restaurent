@@ -1,0 +1,526 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400;1,500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400;1,500&display=swap");
+:root {
+  --main--color: #191f3a;
+  --odd--color: #0f142b;
+  --sub--color: #eaa023;
+  --text--color: #fff;
+}
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  outline: none;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Poppins";
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+.sectionpadding {
+  padding: 80px 0;
+}
+.justify-content {
+  justify-content: space-between;
+}
+.btn {
+  color: var(--sub--color);
+  text-transform: uppercase;
+  background-color: transparent;
+  padding: 15px 30px;
+  border: 3px solid var(--sub--color);
+  border-radius: 50px;
+  font-size: 24px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btn:hover {
+  background-color: #dadada;
+  overflow: hidden;
+}
+.top {
+  position: fixed;
+  padding: 8px 0px;
+  background-color: transparent;
+  width: 100%;
+  z-index: 1;
+}
+.top::before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-color: var(--main--color);
+  transform: translateY(calc(-100% - 16px));
+}
+.top.active::before {
+  transform: translateY(calc(-16px));
+}
+.container {
+  margin: auto;
+  max-width: 1200px;
+  padding: 0px 12px;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.top .row img {
+  width: 80px;
+}
+.top .menu-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.top .menu-bar.active {
+  position: fixed;
+  top: 30px;
+  right: 0;
+  transform: translateX(-260px);
+  z-index: 9;
+}
+
+.top .menu-bar span {
+  display: block;
+  height: 2px;
+  width: 40px;
+  background-color: var(--sub--color);
+  position: relative;
+  transition: 0.5s;
+}
+.top .menu-bar span::before {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  content: "";
+  display: block;
+  background-color: var(--sub--color);
+  transform: translateY(-16px);
+  transition: 0.5s;
+}
+.top .menu-bar span::after {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  content: "";
+  display: block;
+  background-color: var(--sub--color);
+  transform: translateY(16px);
+  transition: 0.5s;
+}
+.top .menu-items {
+  opacity: 0;
+  background-color: var(--main--color);
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 0px;
+  height: 100vh;
+  padding: 80px 20px;
+  transition: 0.5s;
+}
+.top .menu-items .search {
+  width: 100%;
+  margin-bottom: 40px;
+}
+.top .menu-items .search input {
+  width: 100%;
+  border: none;
+  padding: 10px 10px;
+  font-size: 20px;
+  border-radius: 10px;
+}
+.top .menu-items.display {
+  opacity: 1;
+  width: 320px;
+}
+
+.top .menu-items .menu-item {
+  height: 40px;
+  line-height: 40px;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.top .menu-items .menu-item a {
+  display: block;
+  width: 100%;
+  color: var(--text--color);
+  border-radius: 5px;
+  padding: 4px;
+}
+.top .menu-items .menu-item a i {
+  margin-right: 8px;
+}
+.top .menu-items .menu-item:hover a {
+  background-color: #fff;
+  color: black;
+}
+/* big-image */
+
+.big-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+.big-image::before {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-image: url(./ImagesRestaurant/bg.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  z-index: -2;
+  animation: Inout 5s infinite;
+}
+@keyframes Inout {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+.big-image::after {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: -2;
+}
+
+.big-image .img-content {
+  padding: 12px;
+  max-width: 600px;
+  text-align: center;
+}
+.big-image .img-content h2 {
+  font-size: 50px;
+  font-family: "Dancing Script", cursive;
+  color: var(--text--color);
+  font-weight: normal;
+  text-shadow: 5px 5px 5px #000;
+}
+.big-image .img-content p {
+  color: white;
+  font-size: 20px;
+  margin-top: 16px;
+  margin-bottom: 32px;
+}
+
+/* About */
+.about {
+  background-color: var(--main--color);
+}
+.title {
+  width: 100%;
+  text-align: center;
+  margin: 40px 0;
+  font-size: 40px;
+  color: var(--text--color);
+  text-transform: uppercase;
+}
+.title h2::before {
+  content: attr(data-tittle);
+  display: block;
+  color: var(--sub--color);
+  font-size: 40px;
+  font-family: "Dancing Script", cursive;
+}
+
+.about .about-item h2 {
+  color: var(--text--color);
+  font-weight: normal;
+}
+
+.about .about-item p {
+  color: rgba(255, 255, 255, 0.5);
+  margin: 32px 0;
+}
+
+.about .about-item img {
+  width: 100%;
+  border-radius: 12px;
+}
+.about .about-item {
+  width: calc(100% / 2);
+  position: relative;
+  margin-bottom: 140px;
+}
+.about .about-item span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #000;
+  font-weight: bold;
+  font-size: 40px;
+  font-family: "Dancing Script", cursive;
+}
+.about .about-item .image-item::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: calc(50% - 50px);
+  left: calc(50% - 50px);
+  transform: translate(-50%, -50%);
+  border: 5px solid var(--sub--color);
+  animation: runAround 5s infinite;
+  transition: all 0.3;
+}
+
+@keyframes runAround {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* menu */
+.menu {
+  background-color: var(--odd--color);
+}
+.menu-title {
+  width: 100%;
+  text-align: center;
+}
+
+.menu-title .menu-button {
+  background-color: transparent;
+  margin: 16px;
+  border: none;
+  font-size: 20px;
+  color: var(--text--color);
+  cursor: pointer;
+  transition: 0.3s;
+}
+.menu-title .menu-button.active {
+  color: var(--sub--color);
+}
+.menu-title .menu-button.active:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 4px;
+  background-color: var(--sub--color);
+  border-radius: 2px;
+}
+.menu-title .menu-button:hover {
+  color: var(--sub--color);
+}
+.food-items {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  position: relative;
+}
+.food-items::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 32px;
+  bottom: 0;
+  border-bottom: 1px solid #878585;
+  width: 92%;
+}
+.food-items:hover .food-item p {
+  color: var(--sub--color);
+}
+.food-items:hover .food-price p {
+  color: var(--text--color);
+}
+.food-item {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  padding: 20px;
+}
+.food-item img {
+  width: 150px;
+  margin-right: 24px;
+  border-radius: 5px;
+}
+.food-item p {
+  color: var(--text--color);
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+  font-size: 20px;
+  text-transform: capitalize;
+}
+.food-price p {
+  color: var(--sub--color);
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+  font-size: 20px;
+}
+
+.feedback {
+  background-color: var(--main--color);
+}
+.feedback .feedback-items {
+  display: flex;
+  flex-wrap: wrap;
+}
+.feedback-items .feedback-item {
+  width: calc(calc(100% / 3) - 30px);
+  margin: 0 15px;
+  border: 2px solid rgba(0, 0, 0);
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+}
+.feedback-item p {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 16px;
+  text-align: left;
+}
+.feedback-item h2 {
+  color: var(--text--color);
+  font-size: 18px;
+}
+.feedback-item img {
+  width: 100px;
+  border-radius: 50%;
+  border: 2px solid var(--sub--color);
+}
+.feedback-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.feedback-item .feedback-star {
+  color: yellow;
+  margin-top: 16px;
+}
+.team {
+  background-color: var(--odd--color);
+}
+.team-items {
+  display: flex;
+  justify-content: space-between;
+}
+.team-items .team-item {
+  padding: 15px;
+  width: calc(100% / 3 - 30px);
+  position: relative;
+  transition: all 10s;
+}
+.team-items .team-item img {
+  width: 100%;
+  border-radius: 10px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.team-items .team-item .team-text {
+  position: absolute;
+  right: 30px;
+  left: 30px;
+  bottom: 0;
+  color: var(--text--color);
+  text-align: center;
+  background-color: var(--main--color);
+  border-radius: 10px;
+  padding: 15px 0px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.5s;
+  transform: translateY(-0%);
+}
+.team-items .team-item:hover .team-text {
+  background-color: var(--sub--color);
+  transform: translateY(-50%);
+}
+
+.team-items .team-item:hover img {
+  transform: rotate(-5deg) scale(1.1);
+}
+/* contact */
+.contact {
+  background: url(./ImagesRestaurant/./menu13.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.wrap {
+  display: flex;
+  color: var(--text--color);
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 20px;
+}
+.wrap h4 {
+  margin-bottom: 24px;
+  font-size: 24px;
+  text-transform: capitalize;
+}
+.wrap p {
+  color: #acb0b2;
+  font-size: 20px;
+}
+.wrap i {
+  color: var(--text--color);
+  font-size: 20px;
+  padding: 4px;
+}
+.footer {
+  width: 100%;
+  text-align: center;
+  margin: auto;
+  color: white;
+  margin-top: 40px;
+}
+.footer i {
+  font-size: 24px;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+}
